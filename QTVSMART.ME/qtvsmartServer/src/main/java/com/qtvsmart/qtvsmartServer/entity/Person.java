@@ -22,7 +22,6 @@ public abstract class Person {
     @Column(nullable = false, unique = true)
     private int sex;
     @Column(nullable = false, unique = true)
-
     private String phone;
 
 }

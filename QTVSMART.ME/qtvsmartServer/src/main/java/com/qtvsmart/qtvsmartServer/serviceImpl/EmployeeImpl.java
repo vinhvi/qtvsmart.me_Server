@@ -1,7 +1,6 @@
 package com.qtvsmart.qtvsmartServer.serviceImpl;
 
 import com.qtvsmart.qtvsmartServer.entity.Account;
-import com.qtvsmart.qtvsmartServer.entity.Customer;
 import com.qtvsmart.qtvsmartServer.entity.Employee;
 import com.qtvsmart.qtvsmartServer.repository.AccountRepository;
 import com.qtvsmart.qtvsmartServer.repository.EmployeeRepository;

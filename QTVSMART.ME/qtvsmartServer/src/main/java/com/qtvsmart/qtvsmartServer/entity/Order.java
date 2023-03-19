@@ -20,7 +20,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "customers_id")
-    private Customer customer;
+    private Member member;
     @OneToMany(mappedBy = "order")
     private List<OrderDetail> orderDetails= new ArrayList<>();
 

@@ -1,13 +1,10 @@
 package com.qtvsmart.qtvsmartServer.serviceImpl;
 
 import com.qtvsmart.qtvsmartServer.entity.Image;
-import com.qtvsmart.qtvsmartServer.entity.Inventory;
 import com.qtvsmart.qtvsmartServer.entity.Product;
 import com.qtvsmart.qtvsmartServer.entity.Type;
-import com.qtvsmart.qtvsmartServer.repository.ImageRepository;
 import com.qtvsmart.qtvsmartServer.repository.ProductRepository;
 import com.qtvsmart.qtvsmartServer.service.ImageService;
-import com.qtvsmart.qtvsmartServer.service.InventoryService;
 import com.qtvsmart.qtvsmartServer.service.ProductService;
 import com.qtvsmart.qtvsmartServer.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +21,7 @@ public class ProductServiceImpl implements ProductService {
     private ImageService imageService;
     @Autowired
     private TypeService typeService;
-    @Autowired
-    private InventoryService inventoryService;
+
 
     @Override
     public List<Product> getAllProducts() {
@@ -58,12 +54,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteProduct(int id) {
-        Product product = getOneProduct(productRepository.findProductById(id));
-        if (product == null) {
-            return;
-        }
-        product.setHienThi(false);
-        productRepository.save(product);
+
     }
 
     @Override
@@ -72,10 +63,7 @@ public class ProductServiceImpl implements ProductService {
         return productList;
     }
 
-    @Override
-    public List<Product> getProductsByInventory(Inventory inventory) {
-        return null;
-    }
+
 
     @Override
     public List<Product> getBestSellingProducts() {
@@ -106,18 +94,12 @@ public class ProductServiceImpl implements ProductService {
         Type type = typeService.getTypeById(product.getType().getId());
         product1.setType(type);
 
-        Inventory inventory = inventoryService.getById(product.getInventory().getId());
-        product1.setInventory(inventory);
 
         product1.setName(product.getName());
-        product1.setMoTa(product.getMoTa());
-        product1.setXuatSu(product.getXuatSu());
-        product1.setGiaBan(product.getGiaBan());
-        product1.setSoLuongTon(product.getSoLuongTon());
-        product1.setSoLuotXem(product.getSoLuotXem());
-        product1.setColor(product.getColor());
-        product1.setBanChay(product.isBanChay());
-        product1.setHienThi(product.isHienThi());
+
+        product1.setOrigin(product.getOrigin());
+        product1.setPrice(product.getPrice());
+        product1.setCount(product.getCount());
         return product1;
     }
 

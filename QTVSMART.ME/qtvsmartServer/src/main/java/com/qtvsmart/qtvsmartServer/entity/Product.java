@@ -17,12 +17,10 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_id")
     private Type type;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "inventory_id")
-    private Inventory inventory;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "products_id")
@@ -38,6 +36,7 @@ public class Product {
     private List<Specification> specifications = new ArrayList<>();
 
     private String name;
+    private String origin;
     private float price;
     private int count;
 

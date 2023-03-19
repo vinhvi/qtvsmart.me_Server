@@ -1,6 +1,5 @@
 package com.qtvsmart.qtvsmartServer.service;
 
-import com.qtvsmart.qtvsmartServer.entity.Inventory;
 import com.qtvsmart.qtvsmartServer.entity.Product;
 import com.qtvsmart.qtvsmartServer.entity.Type;
 
@@ -17,7 +16,6 @@ public interface ProductService {
 
     List<Product> getProductsByType(Type type);
 
-    List<Product> getProductsByInventory(Inventory inventory);
 
     List<Product> getBestSellingProducts();
 
